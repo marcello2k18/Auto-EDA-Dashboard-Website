@@ -12,13 +12,15 @@ import numpy as np
 import openai
 
 # Load custom CSS
+# Load custom CSS from static folder
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 st.set_page_config(page_title="Advanced CSV Analyzer", layout="wide")
-local_css("style.css")
 
+# Fix: load CSS from the 'static' subfolder
+local_css("static/style.css")
 st.markdown("<h1 class='title'>📊 Advanced CSV/Excel Visualizer & AI Assistant</h1>", unsafe_allow_html=True)
 
 uploaded_file = st.file_uploader("Upload your CSV or Excel file", type=['csv', 'xlsx'])
